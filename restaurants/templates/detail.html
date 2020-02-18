@@ -16,6 +16,18 @@
     <p class="card-text">Opening Time: {{restaurant.opening_time}}</p>
     <p class="card-text">Closing Time: {{restaurant.closing_time}}</p>
     <div class="row text-center">
+      <div class="card-body">
+  <h5 class="card-title">Our Items</h5>
+</div>
+<ul class="list-group list-group-flush">
+  {% for item in items %}
+    <li class="list-group-item">
+      <p><b>{{item.name}}</b></p>
+      <p>{{item.description|linebreaks}}</p>
+      <p>{{item.price}} $$</p>
+    </li>
+  {% endfor %}
+</ul>
         <div class="col-md-6">
             <a href="{% url 'restaurant-update' restaurant.id %}" class="btn btn-outline-primary btn-block">Update</a>
         </div>
